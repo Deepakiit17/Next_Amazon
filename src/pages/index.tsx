@@ -1,14 +1,11 @@
-import Footer from "@/components/Footer";
-import BottomHeader from "@/components/header/BottomHeader";
-import Header from "@/components/header/Header";
+import Banner from "@/components/Banner";
 
 export default function Home() {
   return (
     <main>
-      <Header />
-      <BottomHeader />
-      <div className="py-10 bg-gray-300"></div>
-      <Footer />
+      <div className="max-w-screen-2xl mx-auto">
+        <Banner />
+      </div>
     </main>
   );
 }
