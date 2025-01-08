@@ -17,22 +17,22 @@ const Header = () => {
   const { productData, favoriteData, userInfo, allProducts } = useSelector(
     (state: StateProps) => state.next
   );
-  console.log(session)
+  console.log(session);
   const dispatch = useDispatch();
   useEffect(() => {
     setAllData(allProducts.allProducts);
   }, [allProducts]);
-  // useEffect(() => {
-  //   if (session) {
-  //     dispatch(
-  //       addUser({
-  //         name: session?.user?.name,
-  //         email: session?.user?.email,
-  //         image: session?.user?.image,
-  //       })
-  //     );
-  //   }
-  // }, [session]);
+  useEffect(() => {
+    if (session) {
+      dispatch(
+        addUser({
+          name: session?.user?.name,
+          email: session?.user?.email,
+          image: session?.user?.image,
+        })
+      );
+    }
+  }, [session]);
 
   // Search area
   const [searchQuery, setSearchQuery] = useState("");
