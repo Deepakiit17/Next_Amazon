@@ -10,14 +10,13 @@ import { StateProps, StoreProduct } from "../../../type";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { addUser } from "@/store/nextSlice";
-// import SearchProducts from "../SearchProducts";
+import SearchProducts from "../SearchProduct";
 const Header = () => {
   const { data: session } = useSession();
   const [allData, setAllData] = useState([]);
   const { productData, favoriteData, userInfo, allProducts } = useSelector(
     (state: StateProps) => state.next
   );
-  console.log(session);
   const dispatch = useDispatch();
   useEffect(() => {
     setAllData(allProducts.allProducts);

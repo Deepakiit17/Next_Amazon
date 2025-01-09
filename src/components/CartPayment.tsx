@@ -3,8 +3,8 @@ import FormattedPrice from "./FormattedPrice";
 import { useDispatch, useSelector } from "react-redux";
 import { StateProps, StoreProduct } from "../../type";
 import { useEffect, useState } from "react";
-// import { loadStripe } from "@stripe/stripe-js";
-// import { useSession } from "next-auth/react";
+import { loadStripe } from "@stripe/stripe-js";
+import { useSession } from "next-auth/react";
 
 const CartPayment = () => {
   const { productData, userInfo } = useSelector(
@@ -20,10 +20,10 @@ const CartPayment = () => {
     setTotalAmount(amt);
   }, [productData]);
   // Striep payment
-//   const stripePromise = loadStripe(
-//     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-//   );
-//   const { data: session } = useSession();
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+  );
+  const { data: session } = useSession();
 
   const handleCheckout = async () => {
     const stripe = await stripePromise;
